@@ -16,9 +16,18 @@ int main() {
     RenderTexture2D target = LoadRenderTexture(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     while (!WindowShouldClose()) {
-        float value = GetTime();
-        SetShaderValue(loadedShader, GetShaderLocation(loadedShader, "u_time"), &value, SHADER_UNIFORM_FLOAT);
-        // printf("%d\n", GetShaderLocation(loadedShader, "u_time"));
+        float time = GetTime();
+        float res[2] = {SCREEN_WIDTH, SCREEN_HEIGHT}; 
+        float mouse[2] = {GetMouseX(), GetMouseY()};
+
+        int timeLoc = GetShaderLocation(loadedShader, "u_time");
+        int resLoc = GetShaderLocation(loadedShader, "u_resolution");
+        int mouseLoc = GetShaderLocation(loadedShader, "u_mouse");
+
+        SetShaderValue(loadedShader, timeLoc, &time, SHADER_UNIFORM_FLOAT);
+        SetShaderValue(loadedShader, resLoc, res, SHADER_UNIFORM_VEC2);
+        SetShaderValue(loadedShader, mouseLoc, mouse, SHADER_UNIFORM_VEC2);
+        printf("time: %d res: %d mouse: %d\n", timeLoc, resLoc, mouseLoc);
 
         BeginDrawing();
             ClearBackground(WHITE);
