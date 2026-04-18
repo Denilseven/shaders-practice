@@ -8,7 +8,7 @@ default: build
 build:
 	$(COMPILER) $(SOURCES) -o $(OUTPUT) $(FLAGS)
 
-game: build
+run: build
 	./$(OUTPUT)
 
 clean:

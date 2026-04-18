@@ -2,17 +2,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SCREEN_WIDTH 600
-#define SCREEN_HEIGHT 400
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 800
 
 int main() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "cool");
     SetTargetFPS(60);
 
-    Shader loadedShader = LoadShader(0, "shaders/helloworld.frag");
+    Shader loadedShader = LoadShader(0, "shaders/fence.frag");
 
     // following the example at https://github.com/raysan5/raylib/blob/master/examples/shaders/shaders_postprocessing.c
-    Shader grayShader = LoadShader(0, "shaders/helloworld.frag");
     RenderTexture2D target = LoadRenderTexture(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     while (!WindowShouldClose()) {
