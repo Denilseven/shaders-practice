@@ -9,7 +9,7 @@ int main() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "cool");
     SetTargetFPS(60);
 
-    Shader loadedShader = LoadShader(0, "shaders/fence.frag");
+    Shader loadedShader = LoadShader(0, "shaders/firstcloud.frag");
 
     // following the example at https://github.com/raysan5/raylib/blob/master/examples/shaders/shaders_postprocessing.c
     RenderTexture2D target = LoadRenderTexture(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -26,7 +26,7 @@ int main() {
         SetShaderValue(loadedShader, timeLoc, &time, SHADER_UNIFORM_FLOAT);
         SetShaderValue(loadedShader, resLoc, res, SHADER_UNIFORM_VEC2);
         SetShaderValue(loadedShader, mouseLoc, mouse, SHADER_UNIFORM_VEC2);
-        printf("time: %d res: %d mouse: %d\n", timeLoc, resLoc, mouseLoc);
+        // printf("time: %d res: %d mouse: %d\n", timeLoc, resLoc, mouseLoc);
 
         BeginDrawing();
             ClearBackground(WHITE);
